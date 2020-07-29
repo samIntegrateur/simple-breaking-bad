@@ -1,3 +1,30 @@
+# Simple Breaking Bad
+
+## What it is 
+A simple and fun react test
+
+## Set up
+- 'yarn install' to install dependencies
+- Create at root an .env file with 'REACT_APP_API_BASE_URL=https://www.breakingbadapi.com/api/'
+- 'yarn start' to run project
+
+## Notes
+
+### Time spent 
+4/5 hours
+
+### Explanations
+- I have chosen to make a few basics features, but make them clean (rwd, hooks, layout, ui components)
+instead of fullfill all of them in a quick and dirty way
+
+- You can : Search a character name, see a list of suggestions below, click on it then see character details infos
+- You can't yet : See deaths info, compare 2 characters, get a top 10 and a csv, run tests
+
+- Tech used : create-react-app / typescript / hooks / styled components
+
+---
+# Generated doc
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

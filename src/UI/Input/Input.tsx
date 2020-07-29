@@ -2,8 +2,6 @@ import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 const StlFormGroup = styled.div`
-  width: 25rem;
-  max-width: 100%;
   
   &:not(:last-child) {
     margin-bottom: var(--space-lg);

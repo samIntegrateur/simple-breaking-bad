@@ -54,8 +54,8 @@
   --blue2: #101e68;
   --orange: #eb8e21;
   --orange2: #d97c0e;
-  --yellow: #DBA528;
-  --yellow2: #a17a1f;
+  --yellow: #dba528;
+  --yellow2: #c48f12;
   --red: #e24335;
   --red2: #b1352a;
   --green: #399355;
@@ -194,4 +194,26 @@ img {
 */
 .section + .section > .container {
   padding-top: 0;
+}
+
+/*
+ For spinner
+*/
+
+@-webkit-keyframes spinnerAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinnerAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

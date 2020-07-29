@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Character } from '../shared/types/Character';
 import { API_BASE_URL } from '../shared/constants';
+import useDebounce from './useDebounce';
 
 export const useCharacterSearch = (search: string) => {
     const [data, setData] = useState<Character[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<boolean>(false);
 
-    // todo: add some debounce logic
+    const debouncedSearchTerm = useDebounce(search ? search : '', 500);
+
     useEffect(() => {
 
         const makeRequest = async () => {
@@ -15,29 +17,28 @@ export const useCharacterSearch = (search: string) => {
             setError(false);
 
             try {
-                const queryResult = await fetch(`${API_BASE_URL}characters?name=${search}`);
+                const queryResult = await fetch(`${API_BASE_URL}characters?name=${debouncedSearchTerm}`);
 
                 if (queryResult.status !== 200) {
                     throw new Error('Invalid response');
                 }
 
                 const queryData = await queryResult.json();
-                console.log('queryData', queryData);
 
                 setData(queryData);
 
             } catch (e) {
-               console.error('error', e);
                setError(true);
             }
 
         };
 
         setData([]);
-        if (search && search.length > 2) {
+        if (debouncedSearchTerm && debouncedSearchTerm.length > 2) {
+            console.log('new search request');
             makeRequest().then(() => setLoading(false));
         }
-    }, [search]);
+    }, [debouncedSearchTerm]);
 
     return { data, loading, error };
 }
